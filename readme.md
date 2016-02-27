@@ -22,6 +22,14 @@ Make sure to place the…
 
 …directory in your PATH so the kirby executable can be located by your system.
 
+## Update
+
+To update the CLI, run the following composer command: 
+
+```
+composer global update getkirby/cli
+```
+
 ## Commands
 
 ### kirby install
