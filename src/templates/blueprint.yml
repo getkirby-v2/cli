@@ -1,0 +1,16 @@
+title: {title}
+options: 
+  preview: true
+  status: true
+  template: true
+  url: true
+  delete: true
+pages: true
+files: true
+fields: 
+  title: 
+    label: Title
+    type: title
+  text: 
+    label: Text
+    type: textarea    
