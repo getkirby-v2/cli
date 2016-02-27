@@ -1,6 +1,15 @@
 {
     "name": "getkirby/cli",
     "description": "Kirby CLI",
+    "keywords": ["cli", "kirby", "cms"],
+    "homepage": "https://getkirby.com",
+    "license": "MIT",
+    "support": {
+        "email": "support@getkirby.com",
+        "issues": "https://github.com/getkirby/cli/issues",
+        "forum": "https://forum.getkirby.com",
+        "source": "https://github.com/getkirby/cli"
+    },
     "authors": [
         {
             "name": "Bastian Allgeier",
