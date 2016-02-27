@@ -158,6 +158,16 @@ kirby make:user --username home --password simpson --email homer@simpsons.com
 
 This will create a new user in /site/accounts/homer.php
 
+### kirby make:tag
+
+To create a new kirbytext tag template, you can use the kirby make:tag command:
+
+```
+kirby make:tag mytag
+```
+
+This will create a new tag boilerplate in /site/tags/mytag.php
+
 ****
 
 ### kirby clear:cache
