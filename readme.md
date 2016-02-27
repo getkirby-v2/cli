@@ -174,6 +174,16 @@ kirby make:tag mytag
 
 This will create a new tag boilerplate in /site/tags/mytag.php
 
+### kirby make:plugin
+
+To create a new plugin boilerplate, you can use the kirby make:plugin command:
+
+```
+kirby make:plugin myplugin
+```
+
+This will create a new plugin boilerplate in /site/plugins/myplugin/myplugin.php
+
 ****
 
 ### kirby clear:cache
