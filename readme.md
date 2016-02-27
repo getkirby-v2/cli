@@ -14,7 +14,13 @@ After installing composer, you can install Kirby CLI by running the following co
 composer global require "getkirby/cli=~1.0"
 ```
 
-Make sure to place the ~/.composer/vendor/bin directory in your PATH so the kirby executable can be located by your system.
+Make sure to place the…
+
+```
+~/.composer/vendor/bin
+```
+
+…directory in your PATH so the kirby executable can be located by your system.
 
 ## Commands
 
