@@ -22,6 +22,14 @@ Make sure to place the…
 
 …directory in your PATH so the kirby executable can be located by your system.
 
+### Troubleshooting
+
+It can happen that you get into dependency issues with other global composer packages. In this case, try to install the CLI to a custom location without the `global` option and set the path accordingly. 
+
+```
+composer require "getkirby/cli=~1.0"
+```
+
 ## Update
 
 To update the CLI, run the following composer command: 
