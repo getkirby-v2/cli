@@ -15,21 +15,22 @@ class Download {
     $this->climate = $climate;
   }
 
-  public function start($url, $file) {
+  public function start($url, $file, $message = null) {
 
     $client   = new Client();
     $progress = null;
     $request  = $client->createRequest('GET', $url, ['save_to' => $file]);
     $climate  = $this->climate;
+    $message  = $message ?: 'Downloading latest Kirby ' . (($nightly) ? 'nightly' : 'release');
 
-    $request->getEmitter()->on('progress', function(ProgressEvent $e) use (&$progress, $climate, $nightly) {
+    $request->getEmitter()->on('progress', function(ProgressEvent $e) use (&$progress, $climate, $message) {
 
       if($e->downloadSize === 0) return;
 
       if($progress === null) {
         $progress = $climate->progress()->total($e->downloadSize);
       } else {
-        $progress->current($e->downloaded, 'Downloading latest Kirby ' . (($nightly) ? 'nightly' : 'release'));
+        $progress->current($e->downloaded, $message);
       }
 
     });
@@ -44,6 +45,17 @@ class Download {
     $file = getcwd() . '/kirby-' . $name . '-' . md5(time() . uniqid()) . '.zip';
 
     $this->start($url, $file);
+
+    return $file;
+
+  }
+
+  public function plugin($name) {
+
+    $url  = 'https://github.com/' . $name . '/archive/master.zip';
+    $file = getcwd() . '/kirby-plugin-' . md5(time() . uniqid()) . '.zip';
+
+    $this->start($url, $file, 'Downloading plugin...');
 
     return $file;
 
