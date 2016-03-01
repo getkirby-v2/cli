@@ -124,6 +124,42 @@ kirby update --nightly
 
 ****
 
+### kirby plugin:install
+
+You can install Kirby plugins with a valid package.json file and plugin type field from any repo on Github. 
+
+```
+kirby plugin:install getkirby-plugins/cachebuster-plugin
+```
+
+You must pass the correct Github repository path as the second argument. The package.json file has to contain a `type` field with one of the following values: 
+
+- kirby-plugin (will be installed in /site/plugins)
+- kirby-field (will be installed in /site/fields)
+- kirby-tag (will be installed in /site/tags)
+
+If you want to install a plugin from Kirby's official Plugins organisation (<https://github.com/getkirby-plugins>) you can omit the full path and just specify the repo name: 
+
+```
+kirby plugin:install cachebuster-plugin
+```
+
+### kirby plugin:update
+
+To update an existing plugin, you can use…
+
+```
+kirby plugin:update getkirby-plugins/cachebuster-plugin
+```
+
+The shortcut for official plugins is working here as well:
+
+```
+kirby plugin:update cachebuster-plugin
+```
+
+****
+
 ### kirby make:blueprint
 
 To create a boilerplate blueprint for a particular template, you can use the kirby make:blueprint command:
