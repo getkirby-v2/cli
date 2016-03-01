@@ -207,7 +207,7 @@ This will create a new plugin boilerplate in /site/plugins/myplugin/myplugin.php
 Clears the cache directory
 
 ```
-kirby clear::cache
+kirby clear:cache
 ```
 
 ### kirby clear:thumbs
