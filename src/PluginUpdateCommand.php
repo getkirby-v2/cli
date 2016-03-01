@@ -8,11 +8,11 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class PluginInstallCommand extends PluginCommand {
+class PluginUpdateCommand extends PluginCommand {
 
   protected function configure() {
-    $this->setName('plugin:install')
-         ->setDescription('Installs a new Kirby plugin from Github')
+    $this->setName('plugin:update')
+         ->setDescription('Updates a Kirby plugin')
          ->addArgument('path', InputArgument::REQUIRED, 'Github path');
   }
 
@@ -23,25 +23,22 @@ class PluginInstallCommand extends PluginCommand {
     // download and extract the plugin
     $this->fetch();
 
-    // check for an existing plugin with 
-    // the same name and avoid overwriting it
+    // check if the plugin exists
     if($this->pluginExists()) {
-      if(!$this->confirm('The plugin is already installed. Do you want to update it?')) {
+      if(!$this->confirm('Do you want to update this plugin?')) {
         $this->cleanUp();
         return;      
       }      
     } else {
-      if(!$this->confirm('Do you want to install this plugin?')) {
+      if(!$this->confirm('The plugin is not installed yet. Do you want to install it?')) {
         $this->cleanUp();
         return;      
       }
     }
 
     try {
-
       $this->move();
       $this->cleanUp();
-
     } catch(RuntimeException $e) {
       // make sure to clean up even after errors
       $this->cleanUp();

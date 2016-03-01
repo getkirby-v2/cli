@@ -37,17 +37,21 @@ class BaseCommand extends Command {
 
   }
 
+  protected function dir() {
+    return getcwd();
+  }
+
   protected function unzip() {
     // start to unzip the kit file
     return new Unzip($this->filesystem, $this->climate);    
   }
 
   protected function isInstalled() {
-    return is_file(getcwd() . '/kirby/kirby.php');
+    return is_file($this->dir() . '/kirby/kirby.php');
   }
 
   protected function bootstrap() {
-    require_once(getcwd() . '/kirby/bootstrap.php');    
+    require($this->dir() . '/kirby/bootstrap.php');    
   }
 
   protected function version() {
