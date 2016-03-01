@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use GitWrapper\GitWrapper;
 
 class InstallCommand extends BaseCommand {
 
@@ -15,8 +16,7 @@ class InstallCommand extends BaseCommand {
     $this->setName('install')
          ->setDescription('Creates a new Kirby installation')
          ->addArgument('path', InputArgument::OPTIONAL, 'Directory to install into', 'kirby')
-         ->addOption('nightly', null, InputOption::VALUE_NONE, 'If set, will install the nightly build');
-
+         ->addOption('kit', 'k', InputOption::VALUE_OPTIONAL, 'Set to decide, which kit to install (starterkit, plainkit, langkit)');
   }
 
   protected function execute(InputInterface $input, OutputInterface $output) {
@@ -36,13 +36,15 @@ class InstallCommand extends BaseCommand {
     $output->writeln('<info></info>');
 
     // download the kit zip
-    $zip = $this->download()->kit($nightly ? 'nightly' : false);
+    $zip = $this->download()->kit($input->getOption('kit'));
 
     // start to unzip the kit file
     $this->unzip()->start($zip);
 
     // delete the temporary zip file
     $this->filesystem->delete('local://'. basename($zip));
+
+    
 
     // yay, everything is setup
     $output->writeln('<comment>Kirby is installed!</comment>');

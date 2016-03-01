@@ -25,4 +25,5 @@ $app->add(new Kirby\Cli\MakeTagCommand());
 $app->add(new Kirby\Cli\MakePluginCommand());
 $app->add(new Kirby\Cli\PluginInstallCommand());
 $app->add(new Kirby\Cli\PluginUpdateCommand());
+$app->add(new Kirby\Cli\VersionCommand());
 $app->run();

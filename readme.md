@@ -42,7 +42,7 @@ composer global update getkirby/cli
 
 ### kirby install
 
-Creates a new Kirby starterkit installation. 
+Creates a new Kirby installation. 
 
 ```
 kirby install
@@ -54,10 +54,12 @@ By default the starterkit will be installed in a new directory called kirby. You
 kirby install mywebsite
 ```
 
-If you want to install the nightly build you can add --nightly as option
+You can also install any other official Kirby kit (starterkit, plainkit, langkit) with the `--kit` option
 
 ```
-kirby install --nightly
+kirby install --kit langkit
+kirby install --kit plainkit
+kirby install --kit starterkit
 ```
 
 ### kirby install:core
@@ -68,24 +70,12 @@ If you've already setup your site structure and you want to add the Kirby core, 
 kirby install:core
 ```
 
-The nightly option will install the core from the nightly build
-
-```
-kirby install:core --nightly
-```
-
 ### kirby install:panel
 
 If you want to add the panel to an existing installation, you can run…
 
 ```
 kirby install:panel
-```
-
-The nightly option will install the panel from the nightly build
-
-```
-kirby install:panel --nightly
 ```
 
 ### kirby install:index.php
@@ -115,12 +105,6 @@ kirby update
 ```
 
 This will update the kirby and panel folder, if it exists. You must run this within an existing Kirby installation, which follows Kirby's default folder structure. 
-
-You can update your installation to the current nightly build with the --nightly option:
-
-```
-kirby update --nightly
-```
 
 ****
 
@@ -253,6 +237,18 @@ Delets all thumbnails in /thumbs
 ```
 kirby clear:thumbs
 ```
+
+****
+
+### kirby version
+
+Prints the current version of the core, the panel and the toolkit
+
+```
+kirby version
+```
+
+****
 
 ## License 
 

@@ -12,8 +12,7 @@ class InstallCoreCommand extends BaseCommand {
 
   protected function configure() {
     $this->setName('install:core')
-         ->setDescription('Installs the Kirby core')
-         ->addOption('nightly', null, InputOption::VALUE_NONE, 'If set, will install the core of the nightly build');
+         ->setDescription('Installs the Kirby core');
   }
 
   protected function execute(InputInterface $input, OutputInterface $output) {
@@ -33,7 +32,7 @@ class InstallCoreCommand extends BaseCommand {
     $output->writeln('<info></info>');
 
     // download the kit zip
-    $zip = $this->download()->kit($nightly ? 'nightly' : false);
+    $zip = $this->download()->kit();
 
     // start to unzip the kit file
     $this->unzip()->start($zip, 'kirby');

@@ -21,7 +21,7 @@ class Download {
     $progress = null;
     $request  = $client->createRequest('GET', $url, ['save_to' => $file]);
     $climate  = $this->climate;
-    $message  = $message ?: 'Downloading latest Kirby ' . (($nightly) ? 'nightly' : 'release');
+    $message  = $message ?: 'Downloading Kirby from: ' . $url;
 
     $request->getEmitter()->on('progress', function(ProgressEvent $e) use (&$progress, $climate, $message) {
 
@@ -41,7 +41,17 @@ class Download {
 
   public function kit($name = null) {
 
-    $url  = 'https://download.getkirby.com/' . $name;
+    if(empty($name)) {
+      $name = 'starterkit';
+    }
+
+    $kits = ['starterkit', 'plainkit', 'langkit'];
+
+    if(!in_array($name, $kits)) {
+      throw new RuntimeException('Invalid kit: ' . $name);
+    }
+
+    $url  = 'https://github.com/getkirby/' . $name . '/archive/master.zip';
     $file = getcwd() . '/kirby-' . $name . '-' . md5(time() . uniqid()) . '.zip';
 
     $this->start($url, $file);
