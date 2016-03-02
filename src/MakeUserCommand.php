@@ -44,6 +44,8 @@ class MakeUserCommand extends BaseCommand {
       'username' => $input->getOption('username'),
       'password' => $input->getOption('password'),
       'email'    => $input->getOption('email'),
+      'role'     => 'admin',
+      'language' => 'en'
     ]);
 
     $output->writeln('<comment>The user "' . $user->username() . '" has been created</comment>');

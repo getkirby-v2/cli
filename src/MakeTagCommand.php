@@ -10,7 +10,7 @@ class MakeTagCommand extends MakeCommand {
   protected $what      = 'tag';
   protected $info      = 'Creates a new Kirbytext tag';
   protected $help      = 'Sets the name of the tag';
-  protected $dir       = 'site/tags';
+  protected $dest      = 'site/tags';
   protected $extension = 'php';
 
   protected function copy() {

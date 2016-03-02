@@ -17,7 +17,7 @@ class MakeCommand extends BaseCommand {
   protected $what;
   protected $info; 
   protected $help;
-  protected $dir;
+  protected $dest;
   protected $extension;
 
   protected function configure() {
@@ -41,21 +41,25 @@ class MakeCommand extends BaseCommand {
 
     $this->bootstrap();
 
-    // make sure the directory exists
-    dir::make($this->dir());
-
     // check if the thing already exists
-    if(file_exists($this->file())) {
+    if($this->exists()) {
       throw new RuntimeException('The ' . $this->what . ' exists and cannot be overwritten');
     }
+
+    // make sure the directory exists
+    dir::make($this->dest());
 
     $this->copy();    
     $this->info();
 
   }
 
-  protected function dir() {
-    return getcwd() . '/' . $this->dir;
+  protected function exists() {
+    return file_exists($this->file());
+  }
+
+  protected function dest() {
+    return getcwd() . '/' . $this->dest;
   }
 
   protected function name() {
@@ -63,7 +67,7 @@ class MakeCommand extends BaseCommand {
   }
 
   protected function file() {
-    return $this->dir() . '/' . $this->name() . '.' . $this->extension;
+    return $this->dest() . '/' . $this->name() . '.' . $this->extension;
   }
 
   protected function template() {

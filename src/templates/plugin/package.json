@@ -1,0 +1,7 @@
+{
+  "name": "{name}",
+  "description": "Plugin description",
+  "author": "Your name <your@mail.com>",
+  "license": "MIT",
+  "type": "kirby-plugin"
+}
