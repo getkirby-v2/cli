@@ -11,7 +11,7 @@ The Kirby CLI is being installed with Composer, the PHP package manager. For ins
 After installing composer, you can install Kirby CLI by running the following command:
 
 ```
-composer global require "getkirby/cli=~1.0"
+composer global require getkirby/cli
 ```
 
 Make sure to place the…
@@ -27,7 +27,7 @@ Make sure to place the…
 It can happen that you get into dependency issues with other global composer packages. In this case, try to install the CLI to a custom location without the `global` option and set the path accordingly. 
 
 ```
-composer require "getkirby/cli=~1.0"
+composer require getkirby/cli
 ```
 
 ## Update
