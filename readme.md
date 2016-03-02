@@ -152,6 +152,14 @@ To create a boilerplate blueprint for a particular template, you can use the kir
 kirby make:blueprint projects
 ```
 
+This will start the blueprint builder and take you through a couple questions to setup the blueprint options.
+
+If you prefer to just create a clean boilerplate, you can use…
+
+```
+kirby make:blueprint --bare
+```
+
 This will create a fresh blueprint: /site/blueprints/projects.yml
 
 ### kirby make:controller
