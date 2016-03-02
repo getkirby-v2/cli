@@ -157,7 +157,7 @@ This will start the blueprint builder and take you through a couple questions to
 If you prefer to just create a clean boilerplate, you can use…
 
 ```
-kirby make:blueprint --bare
+kirby make:blueprint projects --bare
 ```
 
 This will create a fresh blueprint: /site/blueprints/projects.yml
