@@ -22,6 +22,9 @@
         }
     },
     "require": {
+        "php": ">=5.5.0",
+        "ext-curl": "*",
+        "ext-zip": "*",
         "symfony/console": "^2.7",
         "symfony/process": "^2.7",
         "guzzlehttp/guzzle": "^5.3",
