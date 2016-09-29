@@ -28,12 +28,22 @@ class Version extends Command {
     // bootstrap the core
     $this->bootstrap();
 
-    // also bootstrap the panel
-    require $this->dir() . '/panel/app/bootstrap.php';
-
     $output->writeln("<info>Core:\t\t" . kirby::version() . "</info>");
     $output->writeln("<info>Toolkit:\t" . toolkit::version() . "</info>");
-    $output->writeln("<info>Panel:\t\t" . panel::version() . "</info>");
+
+    // also check for the panel version, if it is installed
+    if(is_dir($this->dir() . '/panel')) {
+
+      if(!is_file($this->dir() . '/panel/app/bootstrap.php')) {
+        throw new RuntimeException('The panel does not seem to be correctly installed');
+      }
+
+      // bootstrap the panel
+      require $this->dir() . '/panel/app/bootstrap.php';
+
+      $output->writeln("<info>Panel:\t\t" . panel::version() . "</info>");
+
+    }
 
   }
 
