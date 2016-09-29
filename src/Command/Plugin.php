@@ -191,6 +191,9 @@ class Plugin extends Command {
       case 'tag':
         return $this->dir() . '/site/tags/' . $this->name() . '.php';
         break;
+      case 'widget':
+        return $this->dir() . '/site/widgets/' . $this->name();
+        break;
     }
 
   }
