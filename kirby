@@ -20,6 +20,7 @@ $app->add(new Kirby\Cli\Command\Install\Index());
 $app->add(new Kirby\Cli\Command\Install\Htaccess());
 
 // Uninstall Commands
+$app->add(new Kirby\Cli\Command\Uninstall());
 $app->add(new Kirby\Cli\Command\Uninstall\Panel());
 
 // Update Command
