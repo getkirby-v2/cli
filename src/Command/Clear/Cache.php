@@ -1,15 +1,17 @@
 <?php
 
-namespace Kirby\Cli;
+namespace Kirby\Cli\Command\Clear;
 
-use Dir;
 use RuntimeException;
+
+use Kirby\Cli\Command;
+
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ClearCacheCommand extends BaseCommand {
+class Cache extends Command {
 
   protected function configure() {
     $this->setName('clear:cache')
@@ -18,16 +20,14 @@ class ClearCacheCommand extends BaseCommand {
 
   protected function execute(InputInterface $input, OutputInterface $output) {
 
-    if(!$this->isInstalled()) {
+    if($this->isInstalled() === false) {
       throw new RuntimeException('Invalid Kirby installation');
     }
-
-    $this->bootstrap();
-
-    // empty the cache directory
-    dir::clean(getcwd() . '/site/cache');
+  
+    $this->kirby()->cache()->flush();
 
     $output->writeln('<comment>The cache folder has been emptied</comment>');
+    $output->writeln('');
 
   }
 

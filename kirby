@@ -7,23 +7,39 @@ if(file_exists(__DIR__ . '/../../autoload.php')) {
   require __DIR__ . '/vendor/autoload.php';
 }
 
-$app = new Symfony\Component\Console\Application('Kirby CLI', '1.4.0');
-$app->add(new Kirby\Cli\InstallCommand());
-$app->add(new Kirby\Cli\InstallCoreCommand());
-$app->add(new Kirby\Cli\InstallPanelCommand());
-$app->add(new Kirby\Cli\InstallIndexCommand());
-$app->add(new Kirby\Cli\InstallHtaccessCommand());
-$app->add(new Kirby\Cli\UpdateCommand());
-$app->add(new Kirby\Cli\ClearCacheCommand());
-$app->add(new Kirby\Cli\ClearThumbsCommand());
-$app->add(new Kirby\Cli\MakeControllerCommand());
-$app->add(new Kirby\Cli\MakeBlueprintCommand());
-$app->add(new Kirby\Cli\MakeSnippetCommand());
-$app->add(new Kirby\Cli\MakeTemplateCommand());
-$app->add(new Kirby\Cli\MakeUserCommand());
-$app->add(new Kirby\Cli\MakeTagCommand());
-$app->add(new Kirby\Cli\MakePluginCommand());
-$app->add(new Kirby\Cli\PluginInstallCommand());
-$app->add(new Kirby\Cli\PluginUpdateCommand());
-$app->add(new Kirby\Cli\VersionCommand());
+ini_set('display_errors', 1);
+
+$app = new Symfony\Component\Console\Application('Kirby CLI', '1.5.0');
+
+// Install Commands
+$app->add(new Kirby\Cli\Command\Install());
+$app->add(new Kirby\Cli\Command\Install\Core());
+$app->add(new Kirby\Cli\Command\Install\Panel());
+$app->add(new Kirby\Cli\Command\Install\Toolkit());
+$app->add(new Kirby\Cli\Command\Install\Index());
+$app->add(new Kirby\Cli\Command\Install\Htaccess());
+
+// Update Command
+$app->add(new Kirby\Cli\Command\Update());
+
+// Clear Commands 
+$app->add(new Kirby\Cli\Command\Clear\Cache());
+$app->add(new Kirby\Cli\Command\Clear\Thumbs());
+
+// Make Commands
+$app->add(new Kirby\Cli\Command\Make\Controller());
+$app->add(new Kirby\Cli\Command\Make\Snippet());
+$app->add(new Kirby\Cli\Command\Make\Template());
+$app->add(new Kirby\Cli\Command\Make\Blueprint());
+$app->add(new Kirby\Cli\Command\Make\User());
+$app->add(new Kirby\Cli\Command\Make\Tag());
+$app->add(new Kirby\Cli\Command\Make\Plugin());
+
+// Plugin Commands
+$app->add(new Kirby\Cli\Command\Plugin\Install());
+$app->add(new Kirby\Cli\Command\Plugin\Update());
+
+// Kirby Version
+$app->add(new Kirby\Cli\Command\Version());
+
 $app->run();

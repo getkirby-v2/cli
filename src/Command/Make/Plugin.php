@@ -1,11 +1,13 @@
 <?php
 
-namespace Kirby\Cli;
+namespace Kirby\Cli\Command\Make;
 
 use F;
 use Str;
 
-class MakePluginCommand extends MakeCommand {
+use Kirby\Cli\Command\Make;
+
+class Plugin extends Make {
 
   protected $what      = 'plugin';
   protected $info      = 'Creates a new plugin';

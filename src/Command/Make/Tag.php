@@ -1,11 +1,13 @@
 <?php
 
-namespace Kirby\Cli;
+namespace Kirby\Cli\Command\Make;
 
 use F;
 use Str;
 
-class MakeTagCommand extends MakeCommand {
+use Kirby\Cli\Command\Make;
+
+class Tag extends Make {
 
   protected $what      = 'tag';
   protected $info      = 'Creates a new Kirbytext tag';

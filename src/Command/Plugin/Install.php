@@ -1,14 +1,17 @@
 <?php
 
-namespace Kirby\Cli;
+namespace Kirby\Cli\Command\Plugin;
 
 use RuntimeException;
+
+use Kirby\Cli\Command\Plugin;
+
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class PluginInstallCommand extends PluginCommand {
+class Install extends Plugin {
 
   protected function configure() {
     $this->setName('plugin:install')
@@ -38,10 +41,8 @@ class PluginInstallCommand extends PluginCommand {
     }
 
     try {
-
       $this->move();
       $this->cleanUp();
-
     } catch(RuntimeException $e) {
       // make sure to clean up even after errors
       $this->cleanUp();

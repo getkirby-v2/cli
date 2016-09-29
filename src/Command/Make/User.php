@@ -1,15 +1,17 @@
 <?php
 
-namespace Kirby\Cli;
+namespace Kirby\Cli\Command\Make;
 
-use Kirby;
 use RuntimeException;
+
+use Kirby\Cli\Command\Make;
+
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class MakeUserCommand extends BaseCommand {
+class User extends Make {
 
   protected function configure() {
     $this->setName('make:user')
@@ -40,7 +42,7 @@ class MakeUserCommand extends BaseCommand {
       throw new RuntimeException('Invalid Kirby installation');
     }
 
-    $user = $this->kirby()->site()->users()->create([
+    $user = $this->site()->users()->create([
       'username' => $input->getOption('username'),
       'password' => $input->getOption('password'),
       'email'    => $input->getOption('email'),

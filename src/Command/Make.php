@@ -1,16 +1,19 @@
 <?php
 
-namespace Kirby\Cli;
+namespace Kirby\Cli\Command;
 
 use Dir;
 use F;
 use RuntimeException;
+
+use Kirby\Cli\Command;
+
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class MakeCommand extends BaseCommand {
+class Make extends Command {
 
   protected $input;
   protected $output;
@@ -71,7 +74,7 @@ class MakeCommand extends BaseCommand {
   }
 
   protected function template() {
-    return __DIR__ . '/templates/' . $this->what . '.' . $this->extension;
+    return __DIR__ . '/Make/templates/' . $this->what . '.' . $this->extension;
   }
 
   protected function copy() {

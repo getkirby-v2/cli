@@ -1,8 +1,10 @@
 <?php
 
-namespace Kirby\Cli;
+namespace Kirby\Cli\Command\Make;
 
-class MakeTemplateCommand extends MakeCommand {
+use Kirby\Cli\Command\Make;
+
+class Template extends Make {
 
   protected $what      = 'template';
   protected $info      = 'Creates a new template';

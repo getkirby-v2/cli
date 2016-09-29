@@ -22,12 +22,7 @@
         }
     },
     "require": {
-        "symfony/console": "^2.7",
-        "symfony/process": "^2.7",
-        "guzzlehttp/guzzle": "^5.3",
-        "league/climate": "^3.2",
-        "league/flysystem": "^1.0",
-        "league/flysystem-ziparchive": "^1.0"
+        "symfony/console": "*"
     },
     "bin": [
         "kirby"

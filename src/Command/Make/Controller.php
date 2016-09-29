@@ -1,8 +1,10 @@
 <?php
 
-namespace Kirby\Cli;
+namespace Kirby\Cli\Command\Make;
 
-class MakeControllerCommand extends MakeCommand {
+use Kirby\Cli\Command\Make;
+
+class Controller extends Make {
 
   protected $what      = 'controller';
   protected $info      = 'Creates a new controller';

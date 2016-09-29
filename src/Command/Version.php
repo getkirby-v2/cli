@@ -1,17 +1,18 @@
 <?php
 
-namespace Kirby\Cli;
+namespace Kirby\Cli\Command;
 
-use Kirby;
 use Toolkit;
 use Panel;
 use RuntimeException;
+use Kirby;
+use Kirby\Cli\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class VersionCommand extends BaseCommand {
+class Version extends Command {
 
   protected function configure() {
     $this->setName('version')

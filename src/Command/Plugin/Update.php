@@ -1,14 +1,17 @@
 <?php
 
-namespace Kirby\Cli;
+namespace Kirby\Cli\Command\Plugin;
 
 use RuntimeException;
+
+use Kirby\Cli\Command\Plugin;
+
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class PluginUpdateCommand extends PluginCommand {
+class Update extends Plugin {
 
   protected function configure() {
     $this->setName('plugin:update')

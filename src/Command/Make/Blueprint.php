@@ -1,17 +1,20 @@
 <?php
 
-namespace Kirby\Cli;
+namespace Kirby\Cli\Command\Make;
 
 use Data;
 use Dir;
 use F;
 use Str;
+
+use Kirby\Cli\Command\Make;
+
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Question\ChoiceQuestion;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 
-class MakeBlueprintCommand extends MakeCommand {
+class Blueprint extends Make {
 
   protected $what      = 'blueprint';
   protected $info      = 'Creates a new blueprint';

@@ -1,8 +1,10 @@
 <?php
 
-namespace Kirby\Cli;
+namespace Kirby\Cli\Command\Make;
 
-class MakeSnippetCommand extends MakeCommand {
+use Kirby\Cli\Command\Make;
+
+class Snippet extends Make {
 
   protected $what      = 'snippet';
   protected $info      = 'Creates a new snippet';

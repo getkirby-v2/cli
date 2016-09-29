@@ -1,30 +1,32 @@
 <?php
 
-namespace Kirby\Cli;
+namespace Kirby\Cli\Command;
 
 use F;
 use Dir;
 use Data;
 use RuntimeException;
+
+use Kirby\Cli\Command;
+use Kirby\Cli\Util;
+
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 
-class PluginCommand extends BaseCommand {
+class Plugin extends Command {
 
   protected $input;
   protected $output;
-  protected $path;
+  protected $repo;
   protected $zip;
   protected $tmp;
+  protected $uid;
   protected $info;
 
   protected function execute(InputInterface $input, OutputInterface $output) {
-
-    $output->writeln('<info>Downloading Plugin...</info>');
-    $output->writeln('<info></info>');
 
     $this->input  = $input;
     $this->output = $output;
@@ -40,15 +42,15 @@ class PluginCommand extends BaseCommand {
   }
 
   protected function repo() {
-    
-    // shortcut for official getkirby-plugins
-    if(preg_match('!^[a-z0-9_-]+$!i', $this->path)) {
-      $path = 'getkirby-plugins/' . $this->path;
-    } else {
-      $path = $this->path;
-    }
 
-    return 'https://github.com/' . $path;
+    $path = $this->input->getArgument('path');
+
+    // shortcut for official getkirby-plugins
+    if(preg_match('!^[a-z0-9_-]+$!i', $path)) {
+      return 'getkirby-plugins/' . $path;
+    } else {
+      return $path;
+    }
 
   }
 
@@ -57,19 +59,22 @@ class PluginCommand extends BaseCommand {
    */
   protected function fetch() {
 
-    $this->path = $this->input->getArgument('path');
-    $this->zip  = $this->download()->plugin($this->repo());
-    $this->tmp  = $this->dir() . '/' . f::name($this->zip);
+    $this->repo   = $this->repo();
+    $this->uid    = 'kirby-' . str_replace('/', '-', $this->repo) . '-' . uniqid();
+    $this->branch = 'master';
+    $this->zip    = $this->tmp($this->uid . '.zip');
+    $this->tmp    = $this->tmp($this->uid);
 
-    $this->filesystem([
-      'kirby' => $this->tmp
+    // download the file
+    $this->download([
+      'repo'   => $this->repo,
+      'branch' => $this->branch,
+      'zip'    => $this->zip,
+      'output' => $this->output,
     ]);
 
-    // start to unzip the kit file
-    $this->unzip()->start($this->zip);
-
-    // remove the zip
-    f::remove($this->zip);    
+    // unzip the file
+    $this->unzip($this->zip, $this->tmp);
 
     // grab the info from the plugin
     $this->info();
@@ -81,9 +86,6 @@ class PluginCommand extends BaseCommand {
    * return the info as array
    */
   protected function info() {
-
-    $this->output->writeln('<info>Reading package info...</info>');
-    $this->output->writeln('<info></info>');
 
     $this->info = data::read($this->tmp . '/package.json');
 
@@ -101,8 +103,9 @@ class PluginCommand extends BaseCommand {
       throw new RuntimeException('Invalid Kirby Plugin Name');
     }
 
-    $this->output->writeln('<info>Discovered a ' . $this->type() . ' with the name "' . $this->name() . '"</info>');
-    $this->output->writeln('<info></info>');
+    $this->output->writeln('');
+    $this->output->writeln('<comment>Discovered a ' . $this->type() . ' with the name "' . $this->name() . '"</comment>');
+    $this->output->writeln('');
 
     $this->output->writeln('<info>Description: ' . "\t" . $this->description() . '</info>');
     $this->output->writeln('<info>Repository: ' . "\t" . $this->repo() . '</info>');
