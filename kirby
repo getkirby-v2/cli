@@ -37,6 +37,7 @@ $app->add(new Kirby\Cli\Command\Make\Plugin());
 
 // Plugin Commands
 $app->add(new Kirby\Cli\Command\Plugin\Install());
+$app->add(new Kirby\Cli\Command\Plugin\Uninstall());
 $app->add(new Kirby\Cli\Command\Plugin\Update());
 
 // Kirby Version
