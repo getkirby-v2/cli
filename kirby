@@ -19,6 +19,9 @@ $app->add(new Kirby\Cli\Command\Install\Toolkit());
 $app->add(new Kirby\Cli\Command\Install\Index());
 $app->add(new Kirby\Cli\Command\Install\Htaccess());
 
+// Uninstall Commands
+$app->add(new Kirby\Cli\Command\Uninstall\Panel());
+
 // Update Command
 $app->add(new Kirby\Cli\Command\Update());
 
