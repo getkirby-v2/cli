@@ -39,6 +39,15 @@ $app->add(new Kirby\Cli\Command\Make\User());
 $app->add(new Kirby\Cli\Command\Make\Tag());
 $app->add(new Kirby\Cli\Command\Make\Plugin());
 
+// Delete Commands 
+$app->add(new Kirby\Cli\Command\Delete\Controller());
+$app->add(new Kirby\Cli\Command\Delete\Snippet());
+$app->add(new Kirby\Cli\Command\Delete\Template());
+$app->add(new Kirby\Cli\Command\Delete\Blueprint());
+$app->add(new Kirby\Cli\Command\Delete\User());
+$app->add(new Kirby\Cli\Command\Delete\Tag());
+$app->add(new Kirby\Cli\Command\Delete\Plugin());
+
 // Plugin Commands
 $app->add(new Kirby\Cli\Command\Plugin\Install());
 $app->add(new Kirby\Cli\Command\Plugin\Uninstall());
