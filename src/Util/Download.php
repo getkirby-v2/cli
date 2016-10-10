@@ -60,9 +60,9 @@ class Download {
 
   }
 
-  public function plugin($repo) {
+  public function plugin($repo, $branch = 'master') {
 
-    $url  = $repo . '/archive/master.zip';
+    $url  = $repo . '/archive/' . $branch . '.zip';
     $file = getcwd() . '/kirby-plugin-' . md5(time() . uniqid()) . '.zip';
 
     $this->start($url, $file, 'Downloading plugin...');

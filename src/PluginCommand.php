@@ -58,7 +58,7 @@ class PluginCommand extends BaseCommand {
   protected function fetch() {
 
     $this->path = $this->input->getArgument('path');
-    $this->zip  = $this->download()->plugin($this->repo());
+    $this->zip  = $this->download()->plugin($this->repo(), $this->input->getOption('branch'));
     $this->tmp  = $this->dir() . '/' . f::name($this->zip);
 
     $this->filesystem([
