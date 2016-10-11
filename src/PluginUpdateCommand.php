@@ -13,7 +13,8 @@ class PluginUpdateCommand extends PluginCommand {
   protected function configure() {
     $this->setName('plugin:update')
          ->setDescription('Updates a Kirby plugin')
-         ->addArgument('path', InputArgument::REQUIRED, 'Github path');
+         ->addArgument('path', InputArgument::REQUIRED, 'Github path')
+         ->addOption('branch', null, InputOption::VALUE_REQUIRED, 'Branch (Master)', 'master');;
   }
 
   protected function execute(InputInterface $input, OutputInterface $output) {
