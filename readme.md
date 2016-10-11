@@ -128,6 +128,14 @@ If you want to install a plugin from Kirby's official Plugins organisation (<htt
 kirby plugin:install cachebuster-plugin
 ```
 
+#### Branch Option
+
+You can pass a `--branch=dev`-Option to install the plugin form a specific branch. It defaults to the master branch.
+
+```
+kirby plugin:install getkirby-plugins/cachebuster-plugin --branch=dev
+```
+
 ### kirby plugin:update
 
 To update an existing plugin, you can use…
@@ -140,6 +148,14 @@ The shortcut for official plugins is working here as well:
 
 ```
 kirby plugin:update cachebuster-plugin
+```
+
+#### Branch Option
+
+You can pass a --branch=dev-Option to install the plugin form a specific branch. It defaults to the master branch.
+
+```
+kirby plugin:update getkirby-plugins/cachebuster-plugin --branch=dev
 ```
 
 ****
