@@ -130,7 +130,7 @@ kirby plugin:install cachebuster-plugin
 
 #### Branch Option
 
-You can pass a `--branch=dev`-Option to install the plugin from a specific branch. It defaults to the master branch.
+You can pass a `--branch=awesomeBranch`-Option to install the plugin from a specific branch _(here awesomeBranch)_. It defaults to the master branch.
 
 ```
 kirby plugin:install getkirby-plugins/cachebuster-plugin --branch=dev
@@ -152,7 +152,7 @@ kirby plugin:update cachebuster-plugin
 
 #### Branch Option
 
-You can pass a --branch=dev-Option to install the plugin from a specific branch. It defaults to the master branch.
+You can pass a `--branch=awesomeBranch`-Option to install the plugin from a specific branch _(here awesomeBranch)_. It defaults to the master branch.
 
 ```
 kirby plugin:update getkirby-plugins/cachebuster-plugin --branch=dev
