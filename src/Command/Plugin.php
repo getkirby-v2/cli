@@ -61,7 +61,7 @@ class Plugin extends Command {
 
     $this->repo   = $this->repo();
     $this->uid    = 'kirby-' . str_replace('/', '-', $this->repo) . '-' . uniqid();
-    $this->branch = 'master';
+    $this->branch = $this->input->getOption('branch');
     $this->zip    = $this->tmp($this->uid . '.zip');
     $this->tmp    = $this->tmp($this->uid);
 

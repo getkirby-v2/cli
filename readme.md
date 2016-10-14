@@ -122,7 +122,15 @@ You must pass the correct Github repository path as the second argument. The pac
 - kirby-field (will be installed in /site/fields)
 - kirby-tag (will be installed in /site/tags)
 
-If you want to install a plugin from Kirby's official Plugins organisation (<https://github.com/getkirby-plugins>) you can omit the full path and just specify the repo name: 
+If you want to install a plugin from Kirby's official Plugins organisation (<https://github.com/getkirby-plugins>) you can omit the full path and just specify the repo name:
+
+#### Branch Option
+
+You can pass a `--branch=awesomeBranch`-Option to install the plugin from a specific branch _(here awesomeBranch)_. It defaults to the master branch.
+
+```
+kirby plugin:install getkirby-plugins/cachebuster-plugin --branch=dev
+```
 
 ```
 kirby plugin:install cachebuster-plugin
@@ -140,6 +148,14 @@ The shortcut for official plugins is working here as well:
 
 ```
 kirby plugin:update cachebuster-plugin
+```
+
+#### Branch Option
+
+You can pass a `--branch=awesomeBranch`-Option to update the plugin from a specific branch _(here awesomeBranch)_. It defaults to the master branch.
+
+```
+kirby plugin:update getkirby-plugins/cachebuster-plugin --branch=dev
 ```
 
 ****
