@@ -25,7 +25,8 @@
         "php": ">=5.5.0",
         "ext-curl": "*",
         "ext-zip": "*",
-        "symfony/console": "*"
+        "symfony/console": "*",
+        "guzzlehttp/guzzle": "~6.0"
     },
     "bin": [
         "kirby"
