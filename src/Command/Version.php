@@ -7,7 +7,7 @@ use Panel;
 use RuntimeException;
 use Kirby;
 use Kirby\Cli\Command;
-use GuzzleHttp\Client;
+use Kirby\Api\Github;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -15,14 +15,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Version extends Command {
 
-  protected $client;
-
   function __construct() {
     parent::__construct();
-
-    $this->client = new Client([
-      'base_uri' => 'https://api.github.com'
-    ]);
+    $this->client = new Github();
   }
 
   protected function configure() {
@@ -31,8 +26,7 @@ class Version extends Command {
   }
 
   protected function getLatestRelease($repo) {
-    $response = $this->client->request('GET', 'repos/getkirby/' . $repo . '/tags');
-    return json_decode($response->getBody(), true)[0]['name'];
+    return $this->client->getTag('getkirby', $repo)['name'];
   }
 
   protected function execute(InputInterface $input, OutputInterface $output) {

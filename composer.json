@@ -18,7 +18,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Kirby\\Cli\\": "src/"
+            "Kirby\\Cli\\": "src/",
+            "Kirby\\Api\\": "src/Api"
         }
     },
     "require": {
