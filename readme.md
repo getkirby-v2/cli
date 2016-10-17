@@ -62,6 +62,17 @@ kirby install --kit plainkit
 kirby install --kit starterkit
 ```
 
+#### Dev version
+
+You can also use the install command to install the latest version from the development branch to test beta features. This is not recommended for production.
+
+```
+kirby install --dev
+kirby install --dev --kit langkit
+kirby install --dev --kit plainkit
+kirby install --dev --kit starterkit
+```
+
 ### kirby install:core
 
 If you've already setup your site structure and you want to add the Kirby core, you can run kirby install:core instead of kirby install
@@ -70,12 +81,28 @@ If you've already setup your site structure and you want to add the Kirby core, 
 kirby install:core
 ```
 
+#### Dev version
+
+To install the core from the develop branch, use the --dev flag:
+
+```
+kirby install:core --dev
+```
+
 ### kirby install:panel
 
 If you want to add the panel to an existing installation, you can run…
 
 ```
 kirby install:panel
+```
+
+#### Dev version
+
+To install the panel from the develop branch, use the --dev flag:
+
+```
+kirby install:panel --dev
 ```
 
 ### kirby install:index.php
@@ -96,6 +123,26 @@ kirby install:htaccess
 
 ****
 
+### kirby uninstall
+
+You can wipe the current Kirby installation with…
+
+```
+kirby uninstall
+```
+
+This will remove the core, all kirby files in your document root, the thumbs folder and the panel. Your content and assets won't be removed. 
+
+### kirby uninstall:panel
+
+Uninstall the panel only with…
+
+```
+kirby uninstall:panel
+```
+
+****
+
 ### kirby update
 
 To update an existing Kirby installation, you can run…
@@ -105,6 +152,14 @@ kirby update
 ```
 
 This will update the kirby and panel folder, if it exists. You must run this within an existing Kirby installation, which follows Kirby's default folder structure. 
+
+#### Dev version
+
+To update to the latest version from the develop branch, use the --dev flag.
+
+```
+kirby update --dev
+```
 
 ****
 
@@ -227,6 +282,107 @@ kirby make:plugin myplugin
 ```
 
 This will create a new plugin boilerplate in /site/plugins/myplugin/myplugin.php
+
+****
+
+### kirby delete:blueprint
+
+To delete a blueprint, you can run the delete:blueprint command, which will give you a list of all deleteable blueprints
+
+```
+kirby delete:blueprint
+```
+
+To delete a particular blueprint, run…
+
+```
+kirby delete:blueprint myblueprint
+```
+
+### kirby delete:controller
+
+To delete a controller, you can run the delete:controller command, which will give you a list of all deleteable controllers
+
+```
+kirby delete:controller
+```
+
+To delete a particular controller, run…
+
+```
+kirby delete:controller mycontroller
+```
+
+### kirby delete:plugin
+
+To delete a plugin, you can run the delete:plugin command, which will give you a list of all deleteable plugins
+
+```
+kirby delete:plugin
+```
+
+To delete a particular plugin, run…
+
+```
+kirby delete:plugin myplugin
+```
+
+### kirby delete:snippet
+
+To delete a snippet, you can run the delete:snippet command, which will give you a list of all deleteable snippets
+
+```
+kirby delete:snippet
+```
+
+To delete a particular snippet, run…
+
+```
+kirby delete:snippet mysnippet
+```
+
+### kirby delete:tag
+
+To delete a tag, you can run the delete:tag command, which will give you a list of all deleteable tags
+
+```
+kirby delete:tag
+```
+
+To delete a particular tag, run…
+
+```
+kirby delete:tag mytag
+```
+
+### kirby delete:template
+
+To delete a template, you can run the delete:template command, which will give you a list of all deleteable templates
+
+```
+kirby delete:template
+```
+
+To delete a particular template, run…
+
+```
+kirby delete:template mytemplate
+```
+
+### kirby delete:user
+
+To delete a user account, you can run the delete:user command, which will give you a list of all deleteable users
+
+```
+kirby delete:user
+```
+
+To delete a particular user, run…
+
+```
+kirby delete:user username
+```
+
 
 ****
 
