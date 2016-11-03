@@ -9,7 +9,7 @@ if(file_exists(__DIR__ . '/../../autoload.php')) {
 
 ini_set('display_errors', 1);
 
-$app = new Symfony\Component\Console\Application('Kirby CLI', '1.6.0 beta 1');
+$app = new Symfony\Component\Console\Application('Kirby CLI', '1.6.0');
 
 // Install Commands
 $app->add(new Kirby\Cli\Command\Install());
