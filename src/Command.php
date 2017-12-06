@@ -13,7 +13,8 @@ class Command extends \Symfony\Component\Console\Command\Command {
   }
 
   protected function tmp($filename) {
-    return '/tmp/' . $filename;
+    //make it invisible by prepending a dot
+    return rtrim(getcwd(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . '.' . ltrim($filename, DIRECTORY_SEPARATOR);
   }
 
   protected function checkPath($path) {
@@ -70,7 +71,7 @@ class Command extends \Symfony\Component\Console\Command\Command {
   protected function unzip($zip, $path) {
   
     // build the temporary folder path    
-    $tmp = $this->tmp(preg_replace('!.zip$!', '', $zip));
+    $tmp = $this->tmp(basename($zip, '.zip'));
 
     // extract the zip file
     util::unzip($zip, $tmp);

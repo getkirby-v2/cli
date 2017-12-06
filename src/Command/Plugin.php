@@ -63,7 +63,7 @@ class Plugin extends Command {
     $this->uid    = 'kirby-' . str_replace('/', '-', $this->repo) . '-' . uniqid();
     $this->branch = 'master';
     $this->zip    = $this->tmp($this->uid . '.zip');
-    $this->tmp    = $this->tmp($this->uid);
+    $this->tmp    = $this->tmp($this->uid . '_master');
 
     // download the file
     $this->download([
@@ -248,11 +248,11 @@ class Plugin extends Command {
 
     if(is_file($src)) {
       if(!f::move($src, $dest)) {
-        throw new RuntimeException($error);            
+        throw new RuntimeException($error);
       }
     } else if(is_dir($src)) {
       if(!dir::move($src, $dest)) {
-        throw new RuntimeException($error);            
+        throw new RuntimeException($error);
       }
     } else {
       throw new RuntimeException('Invalid source');
