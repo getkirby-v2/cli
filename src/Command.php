@@ -31,7 +31,7 @@ class Command extends \Symfony\Component\Console\Command\Command {
   protected function download($params) {
 
     $options = array_merge([
-      'repo'   => 'getkirby/starterkit',
+      'repo'   => 'getkirby-v2/starterkit',
       'branch' => 'master',
       'zip'    => null,
       'output' => null
@@ -106,7 +106,7 @@ class Command extends \Symfony\Component\Console\Command\Command {
   protected function install($params = []) {
 
     $options = array_merge([
-      'repo'    => 'getkirby/starterkit',
+      'repo'    => 'getkirby-v2/starterkit',
       'branch'  => 'master',
       'path'    => null,
       'output'  => null,

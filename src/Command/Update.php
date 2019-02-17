@@ -40,7 +40,7 @@ class Update extends Command {
 
     // update the core
     $this->install([
-      'repo'    => 'getkirby/kirby', 
+      'repo'    => 'getkirby-v2/kirby',
       'branch'  => $input->getOption('dev') ? 'develop' : 'master',
       'path'    => $this->dir() . '/kirby', 
       'output'  => $output
@@ -57,7 +57,7 @@ class Update extends Command {
 
       // update the toolkit
       $this->install([
-        'repo'    => 'getkirby/toolkit', 
+        'repo'    => 'getkirby-v2/toolkit',
         'branch'  => $input->getOption('dev') ? 'develop' : 'master',
         'path'    => $this->dir() . '/kirby/toolkit', 
         'output'  => $output
@@ -75,7 +75,7 @@ class Update extends Command {
 
       // update the panel
       $this->install([
-        'repo'    => 'getkirby/panel', 
+        'repo'    => 'getkirby-v2/panel',
         'branch'  => $input->getOption('dev') ? 'develop' : 'master',
         'path'    => $this->dir() . '/panel', 
         'output'  => $output

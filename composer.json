@@ -1,14 +1,14 @@
 {
-    "name": "getkirby/cli",
+    "name": "getkirby-v2/cli",
     "description": "Kirby CLI",
     "keywords": ["cli", "kirby", "cms"],
     "homepage": "https://getkirby.com",
     "license": "MIT",
     "support": {
         "email": "support@getkirby.com",
-        "issues": "https://github.com/getkirby/cli/issues",
+        "issues": "https://github.com/getkirby-v2/cli/issues",
         "forum": "https://forum.getkirby.com",
-        "source": "https://github.com/getkirby/cli"
+        "source": "https://github.com/getkirby-v2/cli"
     },
     "authors": [
         {

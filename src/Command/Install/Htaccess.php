@@ -27,7 +27,7 @@ class Htaccess extends Command {
       throw new RuntimeException('The .htaccess file already exists. Please remove the old one it first.');
     }
 
-    $download = util::download('https://raw.githubusercontent.com/getkirby/starterkit/master/.htaccess');
+    $download = util::download('https://raw.githubusercontent.com/getkirby-v2/starterkit/master/.htaccess');
     
     file_put_contents($file, $download);
 

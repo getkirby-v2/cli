@@ -22,7 +22,7 @@ class Toolkit extends Command {
   protected function execute(InputInterface $input, OutputInterface $output) {
 
     $this->install([
-      'repo'    => 'getkirby/toolkit', 
+      'repo'    => 'getkirby-v2/toolkit',
       'branch'  => $input->getOption('dev') ? 'develop' : 'master',
       'path'    => $this->dir() . '/toolkit', 
       'output'  => $output,

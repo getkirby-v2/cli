@@ -22,7 +22,7 @@ class Core extends Command {
   protected function execute(InputInterface $input, OutputInterface $output) {
 
     $this->install([
-      'repo'    => 'getkirby/kirby', 
+      'repo'    => 'getkirby-v2/kirby',
       'branch'  => $input->getOption('dev') ? 'develop' : 'master',
       'path'    => $this->dir() . '/kirby', 
       'output'  => $output,

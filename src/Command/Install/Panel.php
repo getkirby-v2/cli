@@ -22,7 +22,7 @@ class Panel extends Command {
   protected function execute(InputInterface $input, OutputInterface $output) {
 
     $this->install([
-      'repo'    => 'getkirby/panel', 
+      'repo'    => 'getkirby-v2/panel',
       'branch'  => $input->getOption('dev') ? 'develop' : 'master',
       'path'    => $this->dir() . '/panel', 
       'output'  => $output,
