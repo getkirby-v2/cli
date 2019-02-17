@@ -38,7 +38,7 @@ class Install extends Command {
       $this->dev($input, $output, $kit);
     } else {
       $this->install([
-        'repo'    => 'getkirby/' . $kit, 
+        'repo'    => 'getkirby-v2/' . $kit,
         'branch'  => 'master',
         'path'    => $input->getArgument('path'), 
         'output'  => $output,
@@ -53,7 +53,7 @@ class Install extends Command {
     $path = $input->getArgument('path');
 
     $this->install([
-      'repo'   => 'getkirby/' . $kit, 
+      'repo'   => 'getkirby-v2/' . $kit,
       'branch' => 'master',
       'path'   => $path,
       'output' => $output,
@@ -65,7 +65,7 @@ class Install extends Command {
     $output->writeln('Installing the core developer preview...');
 
     $this->install([
-      'repo'   => 'getkirby/kirby', 
+      'repo'   => 'getkirby-v2/kirby',
       'branch' => 'develop',
       'path'   => $path . '/kirby',
       'output' => $output
@@ -74,7 +74,7 @@ class Install extends Command {
     $output->writeln('Installing the panel developer preview...');
 
     $this->install([
-      'repo'   => 'getkirby/panel', 
+      'repo'   => 'getkirby-v2/panel',
       'branch' => 'develop',
       'path'   => $path . '/panel',
       'output' => $output
