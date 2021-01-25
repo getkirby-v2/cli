@@ -1,4 +1,4 @@
-# Kirby CLI
+# Kirby 2 CLI
 
 Kirby's command line interface helps you with regular tasks like the installation of the Kirby starterkit and updating your Kirby installation. It also offers a comfortable way to install templates, snippets, controllers and blueprints.
 
